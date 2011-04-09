@@ -17,6 +17,8 @@
 
 package br.com.bronx.vraptor.saci.restriction;
 
+import br.com.bronx.vraptor.saci.interfaces.Restriction;
+
 
 /**
  * @author Diego Maia da Silva a.k.a. Bronx

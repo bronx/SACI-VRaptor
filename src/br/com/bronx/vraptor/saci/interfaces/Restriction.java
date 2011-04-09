@@ -15,15 +15,16 @@
  * 
  */
 
-package br.com.bronx.vraptor.saci.restriction;
+package br.com.bronx.vraptor.saci.interfaces;
+
+import br.com.bronx.vraptor.saci.restriction.RestrictionType;
+
 
 /**
  * @author Diego Maia da Silva a.k.a. Bronx
  */
-public enum RestrictionType {
-	
-	ACCESS_LEVEL,
-	LOGGED_IN,
-	ROLES;
+public interface Restriction {
+
+	public RestrictionType getRestrictionType();
 	
 }

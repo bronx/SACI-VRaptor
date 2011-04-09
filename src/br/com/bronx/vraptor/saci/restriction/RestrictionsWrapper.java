@@ -21,6 +21,7 @@ import java.util.List;
 
 import br.com.bronx.vraptor.saci.annotation.InheritRestrictions;
 import br.com.bronx.vraptor.saci.annotation.OnAccessDenial;
+import br.com.bronx.vraptor.saci.interfaces.Restriction;
 
 /**
  * @author Diego Maia da Silva a.k.a. Bronx
