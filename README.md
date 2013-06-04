@@ -17,12 +17,14 @@ downloads area or in Maven Repository:
 # Configuration
 
 Open the Deployment Descriptor (web.xml) and add the param below:
+
 	<context-param>
 	  <param-name>br.com.caelum.vraptor.packages</param-name>
 	  <param-value>net.diegomaia.vraptor.saci</param-value>
 	</context-param>
 	
 If you already have configured package, just separate them by commas:
+
 	<context-param>
 	  <param-name>br.com.caelum.vraptor.packages</param-name>
 	  <param-value>another.packages,net.diegomaia.vraptor.saci</param-value>
