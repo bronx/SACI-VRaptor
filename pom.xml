@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/1.0.0 http://maven.apache.org/xsd/maven-1.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.diegomaia.vraptor</groupId>
+	<artifactId>vsaci</artifactId>
+	<version>1.1</version>
+
+	<properties>
+		<java.version>1.6</java.version>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency> 
+			<groupId>br.com.caelum</groupId>
+			<artifactId>vraptor</artifactId>
+			<version>3.5.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+	</dependencies>
+</project>
