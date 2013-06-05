@@ -8,6 +8,13 @@ SACI = Simple Access Control Interface
 
 You only need to copy the jar to your classpath. VRaptor will register plugin when 
 your application starts without any configurations. 
+Downloads are available in downloads area or in Maven Repository:
+ 
+	<dependency>
+	  <groupId>br.com.caelum.vraptor</groupId>
+	  <artifactId>vraptor-plugin-saci</artifactId>
+	  <version>1.1.0</version>
+	</dependency>
 
 # Configuration
 
@@ -73,17 +80,17 @@ To do so, we annotate the methods with @LoginPage and @AccessDeniedPage:
 If not specified, the restrictor simply returns the HTTP Code 403 - Forbiden.
 Now we just have one thing: restrict access to our system!
 
-To do so, we use the annotation @LoggedIn:
+### By LoggedIn
+
+To do so, we can use the annotation @LoggedIn:
 
 	@Resource
 	public class OnlyLoggedUsersController {
 		
 		@LoggedIn
-		@Get("/first/only/logged")
 		public void onlyLoggedUsersCanAccessThisFirstMethod() {}
 		
 		@LoggedIn
-		@Get("/second/only/logged")
 		public void onlyLoggedUsersCanAccessThisSecondMethod() {}
 	}
 	
@@ -102,13 +109,12 @@ If all the methods of the class are in the same restriction (@LoggedIn), we can 
 	@Resource
 	public class OnlyLoggedUsersController {
 
-		@Get("/first/only/logged")
 		public void onlyLoggedUsersCanAccessThisFirstMethod() {}
 		
-		@Get("/second/only/logged")
 		public void onlyLoggedUsersCanAccessThisSecondMethod() {}
 	}
 	
+### By Role
 	
 When using the @Role annotation, you restrict access to method in accordance with the role played by the currently logged in user in the return method by getRoles().
 
@@ -137,6 +143,8 @@ If all the methods of the class are in the same role restriction, we can let the
 	}	
 
 And that is how you use the @Roles.
+
+### By AccessLevel
 
 The annotation @AccessLevel based access control in a hierarchical structure, where access levels are defined by minimum and/or maximum to access a given resource.
 Consider the following example:
