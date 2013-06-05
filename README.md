@@ -1,18 +1,13 @@
 # VRaptor SACI Plugin
 
-VRaptor SACI Plugin provides support to user/role control access 
+VRaptor SACI Plugin provides support to user/role control access
+
+SACI = Simple Access Control Interface 
 
 # How to install?
 
 You only need to copy the jar to your classpath. VRaptor will register plugin when 
-your application starts without any configurations. Downloads are available in 
-downloads area or in Maven Repository:
- 
-	<dependency>
-	  <groupId>br.com.caelum.vraptor</groupId>
-	  <artifactId>vraptor-plugin-saci</artifactId>
-	  <version>1.1.0</version>
-	</dependency>
+your application starts without any configurations. 
 
 # Configuration
 
