@@ -1,59 +1,32 @@
-<project xmlns="http://maven.apache.org/POM/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/1.0.0 http://maven.apache.org/xsd/maven-1.0.0.xsd">
- 	
- 	<modelVersion>4.0.0</modelVersion>
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.diegomaia.vraptor</groupId>
-	<artifactId>vsaci</artifactId>
-	<version>1.0</version>
+	<artifactId>saci</artifactId>
+	<packaging>jar</packaging>
+	<version>1.1</version>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<java.version>1.6</java.version>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.plugin-tools</groupId>
-      <artifactId>maven-plugin-annotations</artifactId>
-      <version>3.2</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.plexus</groupId>
-      <artifactId>plexus-utils</artifactId>
-      <version>3.0.8</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.2</version>
-      <scope>test</scope>
-    </dependency>
-		<dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>slf4j-api</artifactId>
-		<version>1.6.1</version>
-	</dependency>
-	<dependency>
+	<dependencies>
+		<dependency> 
 			<groupId>br.com.caelum</groupId>
 			<artifactId>vraptor</artifactId>
-			<version>3.4.1</version>
+			<version>3.5.1</version>
 			<scope>provided</scope>
 		</dependency>
-  </dependencies>
-
-  <build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.0.2</version>
-			</plugin>
-		</plugins>
-	</build>
-	
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 </project>
