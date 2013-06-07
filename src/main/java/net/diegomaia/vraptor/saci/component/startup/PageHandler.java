@@ -20,7 +20,6 @@ package net.diegomaia.vraptor.saci.component.startup;
 import java.lang.annotation.Annotation;
 
 import net.diegomaia.vraptor.saci.exception.PageException;
-import net.diegomaia.vraptor.saci.startup.PagesMethods;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

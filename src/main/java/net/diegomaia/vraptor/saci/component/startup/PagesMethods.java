@@ -15,7 +15,7 @@
  * 
  */
 
-package net.diegomaia.vraptor.saci.startup;
+package net.diegomaia.vraptor.saci.component.startup;
 
 import java.lang.reflect.Method;
 

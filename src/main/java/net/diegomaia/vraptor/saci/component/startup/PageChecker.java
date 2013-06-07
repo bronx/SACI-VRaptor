@@ -22,7 +22,6 @@ import java.lang.reflect.Method;
 import net.diegomaia.vraptor.saci.annotation.AccessDeniedPage;
 import net.diegomaia.vraptor.saci.annotation.LoginPage;
 import net.diegomaia.vraptor.saci.exception.PageException;
-import net.diegomaia.vraptor.saci.startup.PagesMethods;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.PrototypeScoped;
