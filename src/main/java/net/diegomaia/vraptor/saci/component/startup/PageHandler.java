@@ -18,6 +18,7 @@
 package net.diegomaia.vraptor.saci.component.startup;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 
 import net.diegomaia.vraptor.saci.exception.PageException;
 
@@ -36,8 +37,10 @@ public class PageHandler implements StereotypeHandler {
 
 	private Router router;
 	private PageChecker pageChecker;
-	private String loginPageURL = new String();
-	private String accessDeniedPageURL = new String();
+	private Class<?> loginPageURLClass;
+	private Class<?> accessDeniedPageURLClass;
+	private Method loginPageURLMethod;
+	private Method accessDeniedPageURLMethod;
 	private Logger logger = LoggerFactory.getLogger(PageHandler.class);
 	
 	public PageHandler (Router router, PageChecker pageChecker) {
@@ -46,21 +49,16 @@ public class PageHandler implements StereotypeHandler {
 	}
 
 	public String getLoginPageURL() {
-		return this.loginPageURL;
-	}
-
-	public void setLoginPageURL(String loginPageURL) {
-		this.loginPageURL = loginPageURL;
+		return this.getRouterURI(this.loginPageURLClass, this.loginPageURLMethod);
 	}
 
 	public String getAccessDeniedPageURL() {
-		return this.accessDeniedPageURL;
+		return this.getRouterURI(this.accessDeniedPageURLClass, this.accessDeniedPageURLMethod);
 	}
 
-	public void setAccessDeniedPageURL(String accessDeniedPageURL) {
-		this.accessDeniedPageURL = accessDeniedPageURL;
+	private String getRouterURI(Class<?> type, Method method) {
+		return this.router.urlFor(type, method, new Object[0]);
 	}
-
 
 	@Override
 	public void handle(Class<?> type) {
@@ -70,20 +68,22 @@ public class PageHandler implements StereotypeHandler {
 	private void definePagesURLs(PagesMethods pagesMethods, Class<?> type) {
 
 		if (pagesMethods.getLoginPageMethod() != null) {
-			if (!this.loginPageURL.isEmpty()) {
+			if (this.loginPageURLClass != null) {
 				throw new PageException("Multiple login pages not allowed.");
 			} else {
-				this.loginPageURL = this.router.urlFor(type, pagesMethods.getLoginPageMethod(), new Object[0]);
-				this.logger.info("Login page >> " + this.loginPageURL);
+				this.loginPageURLClass = type;
+				this.loginPageURLMethod = pagesMethods.getLoginPageMethod();
+				this.logger.info("Login page >> " + this.loginPageURLMethod);
 			}
 		}
 		
 		if (pagesMethods.getAccessDeniedPageMethod() != null) {
-			if (!this.accessDeniedPageURL.isEmpty()) {
+			if (this.accessDeniedPageURLClass != null) {
 				throw new PageException("Multiple access denied pages not allowed.");
 			} else {
-				this.accessDeniedPageURL = this.router.urlFor(type, pagesMethods.getAccessDeniedPageMethod(), new Object[0]);
-				this.logger.info("Access denied page >> " + this.accessDeniedPageURL);
+				this.accessDeniedPageURLClass = type;
+				this.accessDeniedPageURLMethod = pagesMethods.getAccessDeniedPageMethod();
+				this.logger.info("Access denied page >> " + this.accessDeniedPageURLClass);
 			}
 		}
 		
@@ -92,6 +92,5 @@ public class PageHandler implements StereotypeHandler {
 	@Override
 	public Class<? extends Annotation> stereotype() {
 		return Resource.class;
-	}
-	
+	}	
 }
